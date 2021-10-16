@@ -1,0 +1,24 @@
+<div class="navbar">
+    <div class="navbar-logo">
+        <a routerLink="/" class="navbar-logo-text">
+            Anime DB
+        </a>
+    </div>
+    <div class="navbar-links">
+        <div class="navbar-links-search">
+            <form #f="ngForm" (ngSubmit)="onSearch(f)">
+                <input type="text" name="animeSearch" id="animeSearch" class="navbar-links-search-input" placeholder="Search Movies!!!" ngModel>
+                <button type="submit" class="navbar-links-search-submit"><fa-icon [icon]="faSearch"></fa-icon></button>
+            </form>
+        </div>
+        <div class="navbar-links-auth">
+            <a class="navbar-links-auth-text" routerLink="/">
+                Login
+            </a>
+            <span class="navbar-links-auth-text">&nbsp;|&nbsp;</span>
+            <a class="navbar-links-auth-text" routerLink="/">
+                SignUp
+            </a>
+        </div>
+    </div>
+</div>
