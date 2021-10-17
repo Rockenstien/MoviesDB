@@ -17,8 +17,8 @@ export class NavbarComponent implements OnInit {
   }
 
   onSearch(formData: NgForm){
-    if(formData.value.movieSearch != ""){
-      this.routes.navigate(['search', formData.value.movieSearch]);
+    if(formData.value.animeSearch != ""){
+      this.routes.navigate(['search', formData.value.animeSearch]);
     }
   }
 

@@ -9,13 +9,15 @@ import { AnimeComponent } from './components/home/anime/anime.component';
 import { HomeComponent } from './components/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { WordCutPipe } from './word-cut.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     AnimeComponent,
-    HomeComponent
+    HomeComponent,
+    WordCutPipe
   ],
   imports: [
     BrowserModule,

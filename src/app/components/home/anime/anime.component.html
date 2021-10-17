@@ -1,8 +1,8 @@
-<div class="movie">
-    <a class="movie-image" routerLink="">
-        <img class="img-responsive" src="{{ anime.image }}" alt="{{ anime.title }}">
+<div class="anime">
+    <a class="anime-image" routerLink="">
+        <img class="img-responsive" src="{{ anime.image_url }}" alt="{{ anime.title }}">
     </a>
-    <div class="movie-details">
-        <p>{{ anime.title }}</p>
+    <div class="anime-details">
+        <p>{{ anime.title | wordCut }}</p>
     </div>
 </div>
