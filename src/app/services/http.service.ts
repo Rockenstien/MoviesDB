@@ -12,10 +12,10 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
-  animeonLoad(filter: string){
+  animeonLoad(filter: string, pageNumber: number){
     return this.http
                 .get<{ [key: string]: AnimeSearch[] }>(
-                  `https://api.jikan.moe/v3/top/anime/1/${filter}`
+                  `https://api.jikan.moe/v3/top/anime/${pageNumber}/${filter}`
                 )
                 .pipe(map(responseData => {
                   let movieArray : AnimeSearch[]= [];

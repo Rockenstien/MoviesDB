@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { HttpService } from './http.service';
+import { AnimeListService } from './anime-list.service';
 
-describe('HttpService', () => {
-  let service: HttpService;
+describe('AnimeListService', () => {
+  let service: AnimeListService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(HttpService);
+    service = TestBed.inject(AnimeListService);
   });
 
   it('should be created', () => {

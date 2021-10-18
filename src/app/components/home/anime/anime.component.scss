@@ -1,27 +1,80 @@
 .anime {
-    width: 216px;
-    height: 348px;
-    // border: 3px solid transparent;
     
-    transition-duration: 0.2s;
-    &-image {
-        img{
-            width: 210px;
-            height: 315px;
-            border-radius: 20px;
+    &-filter {
+        width: 90%;
+        margin: 5px auto;
+        margin-bottom: 60px;
+
+        select {
+            box-shadow: 0px 0px 10px wheat;
+            font-size: 1.0rem;
+            padding: 0.5em 1rem;
+            background-color: #1d1d1d;
+            color: white;
+            border: 0;
+            border-radius: 5px;
+            outline: none;
+
+            option {
+                padding: 0.5em 1rem;
+            }
         }
     }
 
-    &-details {
-        text-align: center;
-        p {
-            color: white;
+    &-pagination {
+        width: 60%;
+        margin: 2rem auto 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &-page{
+            padding: 10px;
+            background-color: wheat;
+            cursor: pointer;
+
+            &:hover {
+                background-color: red;
+            }
         }
     }
-    &:hover{
-        text-shadow: 0 0 5px rgba(255,255,255,2);
-        transform: scale(1.1);
-        // border: 3px solid #919191;
+
+    &-row {
+
+        display: grid;
+        width: 90%;
+        margin: 10px auto;
+        grid-template-columns: repeat(4, 1fr);
+        row-gap: 20px;
+
+        &-item{
+            
+            &-card {
+                width: 216px;
+                height: 348px;
+                // border: 3px solid transparent;
+                
+                transition-duration: 0.2s;
+                &-image {
+                    img{
+                        width: 210px;
+                        height: 315px;
+                        border-radius: 20px;
+                    }
+                }
+
+                &-details {
+                    text-align: center;
+                    p {
+                        color: white;
+                    }
+                }
+                &:hover{
+                    text-shadow: 0 0 5px rgba(255,255,255,2);
+                    transform: scale(1.1);
+                    // border: 3px solid #919191;
+                }
+            }
+        }
     }
     
 }

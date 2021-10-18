@@ -1,15 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AnimeDetailsComponent } from './components/home/anime-details/anime-details.component';
+import { AnimeComponent } from './components/home/anime/anime.component';
 import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
-  },
-  {
-    path: 'search/:anime-search',
-    component: HomeComponent
+    component: HomeComponent,
+    children: [
+      {
+        path: 'anime',
+        component: AnimeComponent
+      },
+      {
+        path: 'anime/:anime-search',
+        component: AnimeComponent,
+        
+      },
+      {
+        path: 'anime/details/:anime-id',
+        component: AnimeDetailsComponent
+      }
+    ]
   }
 ];
 

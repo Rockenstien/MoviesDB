@@ -1,7 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { AnimeListService } from 'src/app/services/anime-list.service';
 import { AnimeSearch } from 'src/app/anime-search.model';
 import { HttpService } from 'src/app/services/http.service';
+import { FilteringService } from 'src/app/services/filtering.service';
 
 @Component({
   selector: 'app-home',
@@ -12,41 +14,14 @@ export class HomeComponent implements OnInit {
   
   animeList: AnimeSearch[] = []
   isLoading: boolean = false;
-  filterSelect: string = "favorite";
 
-  constructor(private activatedRoute: ActivatedRoute, private httpService: HttpService) { }
+  constructor(private router: Router, private httpService: HttpService, private animeListService: AnimeListService, private filtering: FilteringService) { }
 
 
   ngOnInit(): void {
     // console.log(1);
-    this.isLoading = true;
+    // this.isLoading = true;
+    this.router.navigate(['anime']);
 
-    this.activatedRoute.params.subscribe((params: Params) => {
-      // console.log(params)
-      if (params['anime-search']) {
-        this.httpService
-        .animeSearch(params['anime-search'])
-        .subscribe((responseData)=>{
-          this.animeList = responseData;
-          console.log(responseData)
-          this.isLoading = false;
-        })
-      }
-      else {
-        this.filterLoad()
-      }
-    });
   }
-
-  filterLoad(){
-    // console.log(filter.value);
-    this.httpService
-    .animeonLoad(this.filterSelect)
-    .subscribe((responseData) => {
-      this.animeList = responseData;
-      console.log(responseData)
-      this.isLoading = false;
-    })
-  }
-
 }

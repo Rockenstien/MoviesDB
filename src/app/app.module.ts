@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { WordCutPipe } from './word-cut.pipe';
+import { AnimeDetailsComponent } from './components/home/anime-details/anime-details.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { WordCutPipe } from './word-cut.pipe';
     NavbarComponent,
     AnimeComponent,
     HomeComponent,
-    WordCutPipe
+    WordCutPipe,
+    AnimeDetailsComponent,
   ],
   imports: [
     BrowserModule,
