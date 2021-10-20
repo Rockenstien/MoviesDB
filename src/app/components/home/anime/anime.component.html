@@ -13,8 +13,8 @@
 </div>
 <div class="anime-row">
     <div class="anime-row-item" *ngFor="let anime of animeList;">
-        <div class="anime-row-item-card">
-            <a class="anime-row-item-card-image" (click)="setAnimeDetailToService(anime)">
+        <div class="anime-row-item-card" (click)="setAnimeDetailToService(anime, anime.mal_id)">
+            <a class="anime-row-item-card-image">
                 <img class="img-responsive" src="{{ anime.image_url }}" alt="{{ anime.title }}">
             </a>
             <div class="anime-row-item-card-details">
@@ -26,28 +26,31 @@
 <hr>
     <div class="anime-pagination">
         <div class="anime-pagination-page">
-            <a (click)="paginate(-1)">&laquo;</a>
+            <button (click)="paginate(-1)">&laquo;</button>
+        </div>
+        <div class="anime-pagination-page" *ngFor="let j of [].constructor(6); let i = index;">
+            <button (click)="paginate(i+1)" [ngClass]="{ activeButton : currentPage == i+1 }">{{ i+1 }}</button>
+        </div>
+        <!-- <div class="anime-pagination-page">
+            <button (click)="paginate(1)" [ngClass]="{ activeButton : currentPage == 1 }">1</button>
         </div>
         <div class="anime-pagination-page">
-            <a (click)="paginate(1)">1</a>
+            <button (click)="paginate(2)" [ngClass]="{ activeButton : currentPage == 2 }">2</button>
         </div>
         <div class="anime-pagination-page">
-            <a (click)="paginate(2)">2</a>
+            <button (click)="paginate(3)" [ngClass]="{ activeButton : currentPage == 3 }">3</button>
         </div>
         <div class="anime-pagination-page">
-            <a (click)="paginate(3)">3</a>
+            <button (click)="paginate(4)" [ngClass]="{ activeButton : currentPage == 4 }">4</button>
         </div>
         <div class="anime-pagination-page">
-            <a (click)="paginate(4)">4</a>
+            <button (click)="paginate(5)" [ngClass]="{ activeButton : currentPage == 5 }">5</button>
         </div>
         <div class="anime-pagination-page">
-            <a (click)="paginate(5)">5</a>
-        </div>
+            <button (click)="paginate(6)" [ngClass]="{ activeButton : currentPage == 6 }">6</button>
+        </div> -->
         <div class="anime-pagination-page">
-            <a (click)="paginate(6)">6</a>
-        </div>
-        <div class="anime-pagination-page">
-            <a (click)="paginate(0)">&raquo;</a>
+            <button (click)="paginate(0)">&raquo;</button>
         </div>
     </div>
     <hr>

@@ -15,11 +15,11 @@ export class AnimeComponent implements OnInit {
   animeList: AnimeSearch[];
   filterSelect: string = "favorite";
   currentPage: number = 1;
+  paginationButtonDisabled:boolean = false;
 
   constructor(private animeDetailsService: AnimeDetailsService, private router: Router, private animeListService: AnimeListService, private filteringService: FilteringService, private httpService: HttpService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.filterChangeService();
     this.activatedRoute.params.subscribe((params: Params) => {
       if (params['anime-search']) {
         this.httpService
@@ -30,17 +30,7 @@ export class AnimeComponent implements OnInit {
         })
       }
       else {
-        this.filteringService.filterLoad(this.filterSelect, this.currentPage)
-        .subscribe((responseData) => {
-          // this.setAnimeList.setAnimeList(responseData)
-          this.animeList = responseData;
-          console.log(responseData);
-          // this.animeList = responseData;
-          // console.log(responseData)
-          // this.isLoading = false;
-        })
-
-        // this.filteringService.filterLoad(this.filterSelect, this.currentPage)
+        this.animeLoad()
       }
     });
   }
@@ -49,16 +39,27 @@ export class AnimeComponent implements OnInit {
   //   this.animeList = this.animeListService.getAnimeList();
   // }
 
-  setAnimeDetailToService(anime: AnimeSearch){
-    this.animeDetailsService.setDetail(anime);
-    this.router.navigate(['anime'])
+  setAnimeDetailToService(anime: AnimeSearch, mal_id: number){
+    // this.animeDetailsService.setDetail(anime);
+    this.router.navigate(['anime-details', mal_id])
   }
 
   filterChangeService(){
-    this.filteringService.filterLoad(this.filterSelect, this.currentPage);
+    this.animeLoad();
+  }
+
+  animeLoad(){
+    this.filteringService.filterLoad(this.filterSelect, this.currentPage)
+    .subscribe((responseData) => {
+      // this.setAnimeList.setAnimeList(responseData)
+      this.animeList = responseData;
+      console.log(this.currentPage);
+      // this.animeList = responseData;
+      // console.log(responseData)
+      // this.isLoading = false;
+    })
   }
   
-
   paginate(pageNumber: number){
     switch(pageNumber){
       case 1:
@@ -67,17 +68,18 @@ export class AnimeComponent implements OnInit {
       case 4:
       case 5:
       case 6:  {
-        this.filteringService.filterLoad(this.filterSelect, this.currentPage);
+        this.currentPage = pageNumber;
+        this.animeLoad()
         break;
       }
       case 0: {
-        this.currentPage = ( this.currentPage == 6 ) ? 6 : ++this.currentPage;
-        this.filteringService.filterLoad(this.filterSelect, this.currentPage);
+        this.currentPage = ( this.currentPage == 6 ) ? 6 : this.currentPage+1;
+        this.animeLoad()
         break;
       }
       case -1: {
-        this.currentPage = ( this.currentPage == 0 ) ? 0 : --this.currentPage;
-        this.filteringService.filterLoad(this.filterSelect, this.currentPage);
+        this.currentPage = ( this.currentPage == 0 ) ? 0 : this.currentPage-1;
+        this.animeLoad()
         break;
       }
     }

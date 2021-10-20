@@ -19,7 +19,7 @@ const routes: Routes = [
         
       },
       {
-        path: 'anime/details/:anime-id',
+        path: 'anime-details/:mal-id',
         component: AnimeDetailsComponent
       }
     ]

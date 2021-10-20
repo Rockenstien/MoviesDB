@@ -1,17 +1,21 @@
 <div class="navbar">
     <div class="navbar-logo">
-        <a routerLink="/" class="navbar-logo-text">
-            Anime DB
+        <a routerLink="/anime" class="navbar-logo-text">
+            MOV<span>.</span>
         </a>
     </div>
+    <div class="navbar-search">
+        <form #f="ngForm" (ngSubmit)="onSearch(f)">
+            <fa-icon [icon]="faSearch"></fa-icon>
+            <input type="text" name="animeSearch" id="animeSearch" class="navbar-search-input" placeholder="Search something here..." ngModel>
+            <!-- <button type="submit" class="navbar-links-search-submit"></button> -->
+        </form>
+    </div>
     <div class="navbar-links">
-        <div class="navbar-links-search">
-            <form #f="ngForm" (ngSubmit)="onSearch(f)">
-                <input type="text" name="animeSearch" id="animeSearch" class="navbar-links-search-input" placeholder="Search Movies!!!" ngModel>
-                <button type="submit" class="navbar-links-search-submit"><fa-icon [icon]="faSearch"></fa-icon></button>
-            </form>
-        </div>
-        <div class="navbar-links-auth">
+        <!-- <div class="navbar-links-search">
+            
+        </div> -->
+        <!-- <div class="navbar-links-auth">
             <a class="navbar-links-auth-text" routerLink="/">
                 Login
             </a>
@@ -19,6 +23,13 @@
             <a class="navbar-links-auth-text" routerLink="/">
                 SignUp
             </a>
+        </div> -->
+        <div class="navbar-links-username">
+            <p class="navbar-links-username-hello">Hello</p>
+            <p class="navbar-links-username-nametext">Paras</p>
+        </div>
+        <div class="navbar-links-profilepic">
+            <!-- <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt=""> -->
         </div>
     </div>
 </div>

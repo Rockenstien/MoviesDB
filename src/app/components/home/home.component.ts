@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     // console.log(1);
     // this.isLoading = true;
-    this.router.navigate(['anime']);
+    // this.router.navigate(['anime']);
 
   }
 }
