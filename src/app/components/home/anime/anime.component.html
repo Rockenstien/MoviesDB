@@ -1,29 +1,44 @@
-
-<div class="anime-filter">
-    <select name="filter" id="filter" [(ngModel)]="filterSelect" (change)="filterChangeService()">
-        <option value="bypopularity">By Popularity</option>
-        <option value="favorite">Favorite</option>
-        <option value="airing">Airing</option>
-        <option value="upcoming" >Upcoming</option>
-        <option value="tv">Tv</option>
-        <option value="movie">Movie</option>
-        <option value="ova">Ova</option>
-        <option value="special">Special</option>
-    </select>
-</div>
-<div class="anime-row">
-    <div class="anime-row-item" *ngFor="let anime of animeList;">
-        <div class="anime-row-item-card" (click)="setAnimeDetailToService(anime, anime.mal_id)">
-            <a class="anime-row-item-card-image">
-                <img class="img-responsive" src="{{ anime.image_url }}" alt="{{ anime.title }}">
-            </a>
-            <div class="anime-row-item-card-details">
-                <p>{{ anime.title | wordCut }}</p>
+<div class="anime">
+    <div class="anime-head">
+        <div class="anime-head-title">
+            <p>Animes Collection</p>
+        </div>
+        <div class="anime-head-filter">
+            <span>{{ filterSelect | uppercase }} ANIMES</span>
+            <div class="anime-head-filter-line">
+                <div class="anime-head-filter-line-1"></div>
+                <div class="anime-head-filter-line-2"></div>
+            </div>
+            <div class="anime-head-filter-select">
+                <select name="filter" id="filter" [(ngModel)]="filterSelect" (change)="filterChangeService()">
+                    <option value="bypopularity">By Popularity</option>
+                    <option value="favorite">Favorite</option>
+                    <option value="airing">Airing</option>
+                    <option value="upcoming" >Upcoming</option>
+                    <option value="tv">Tv</option>
+                    <option value="movie">Movie</option>
+                    <option value="ova">Ova</option>
+                    <option value="special">Special</option>
+                </select>
             </div>
         </div>
     </div>
-</div>
-<hr>
+    <div class="anime-row">
+        <div class="anime-row-item" *ngFor="let anime of animeList;">
+            <div class="anime-row-item-card" (click)="setAnimeDetailToService(anime, anime.mal_id)">
+                <a class="anime-row-item-card-image">
+                    <img class="img-responsive" src="{{ anime.image_url }}" alt="{{ anime.title }}">
+                </a>
+                <div class="anime-row-item-card-rating">
+                    <p>{{ anime.score.toFixed(2) }}</p>
+                </div>
+                <div class="anime-row-item-card-details">
+                    <p class="anime-row-item-card-details-date">{{ anime.start_date ?? "NA" }} • {{ anime.type ?? "NA" }}</p>
+                    <p class="anime-row-item-card-details-name">{{ anime.title | wordCut }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="anime-pagination">
         <div class="anime-pagination-page">
             <button (click)="paginate(-1)">&laquo;</button>
@@ -31,26 +46,8 @@
         <div class="anime-pagination-page" *ngFor="let j of [].constructor(6); let i = index;">
             <button (click)="paginate(i+1)" [ngClass]="{ activeButton : currentPage == i+1 }">{{ i+1 }}</button>
         </div>
-        <!-- <div class="anime-pagination-page">
-            <button (click)="paginate(1)" [ngClass]="{ activeButton : currentPage == 1 }">1</button>
-        </div>
-        <div class="anime-pagination-page">
-            <button (click)="paginate(2)" [ngClass]="{ activeButton : currentPage == 2 }">2</button>
-        </div>
-        <div class="anime-pagination-page">
-            <button (click)="paginate(3)" [ngClass]="{ activeButton : currentPage == 3 }">3</button>
-        </div>
-        <div class="anime-pagination-page">
-            <button (click)="paginate(4)" [ngClass]="{ activeButton : currentPage == 4 }">4</button>
-        </div>
-        <div class="anime-pagination-page">
-            <button (click)="paginate(5)" [ngClass]="{ activeButton : currentPage == 5 }">5</button>
-        </div>
-        <div class="anime-pagination-page">
-            <button (click)="paginate(6)" [ngClass]="{ activeButton : currentPage == 6 }">6</button>
-        </div> -->
         <div class="anime-pagination-page">
             <button (click)="paginate(0)">&raquo;</button>
         </div>
     </div>
-    <hr>
+</div>

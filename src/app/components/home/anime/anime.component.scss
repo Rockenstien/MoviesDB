@@ -1,35 +1,70 @@
 .anime {
-    
-    &-filter {
-        width: 90%;
-        margin: 5px auto;
-        margin-bottom: 60px;
 
-        select {
-            box-shadow: 0px 0px 10px wheat;
-            font-size: 1.0rem;
-            padding: 0.5em 1rem;
-            background-color: #1d1d1d;
-            color: white;
-            border: 0;
-            border-radius: 5px;
-            outline: none;
-
-            option {
-                padding: 0.5em 1rem;
+    &-head {
+        &-title {
+            font-size: 37px;
+            width: 50%;
+            p {
+                color: white;
+                
             }
         }
-    }
+    
+        &-filter {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            span {
+                display: inline-block;
+                color: rgba(79, 89, 99, 0.9);
+                margin-right: 50px;
+                margin-top: 17px;
+            }
 
+            &-line {
+                width: 70%;
+                // border-top: 1px solid white;
+                display: flex;
+                flex-direction: column;
+                &-1{
+                    width: 100%;
+                    height: 50%;
+                    border-bottom: 1px solid rgba(79,89,99, 0.3);
+                }
+            }
+    
+            // width: 90%;
+            // margin: 5px auto;
+            margin-bottom: 60px;
+    
+            select {
+               font-size: 1.0rem;
+                padding: 1em 3rem;
+                background-color: #20e28c;
+                color: rgb(79,89,99);
+                border: 0;
+                border-radius: 24px;
+                outline: none;
+    
+                option {
+                    padding: 0.5em 1rem;
+                }
+            }
+        }    
+    }
     &-pagination {
         width: 60%;
         margin: 2rem auto 1rem;
+        border-top: 1px solid rgba(79,89,99, 0.3);
+        border-bottom: 1px solid rgba(79,89,99, 0.3);
+        padding-top: 30px;
+        padding-bottom: 30px;
         display: flex;
         align-items: center;
         justify-content: center;
         &-page{
             // padding: 10px;
-            background-color: wheat;
+            background-color: #20e28c;
             
             button {
                 width: 100%;
@@ -41,10 +76,10 @@
             }
 
             &:hover {
-                background-color: #1d1d1d;
+                background-color: #1b2634;
 
                 button {
-                    color: wheat;
+                    color: #20e28c;
                 }
             }
         }
@@ -55,33 +90,52 @@
         display: grid;
         width: 90%;
         margin: 10px auto;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(6, 1fr);
         row-gap: 20px;
 
         &-item{
-            
+            margin-bottom: 57px;
             &-card {
-                width: 216px;
-                height: 348px;
-                // border: 3px solid transparent;
                 
+                width: 216px;
+                height: 348px;                
                 transition-duration: 0.2s;
+                position: relative;
+
                 &-image {
                     img{
                         width: 210px;
                         height: 315px;
-                        border-radius: 20px;
+                        border-radius: 10px;
                     }
                 }
 
+                &-rating {
+                    width: 42px;
+                    height: 42px;
+                    position: absolute;
+                    top: 8px;
+                    bottom: 2px;
+                    right: 8px;
+                    background-color: rgba(32,226,140, 0.8);
+                    border-radius: 50%;
+                    padding-left: 6px;
+                    padding-top: 10px;
+                    // p {
+                    //     padding-left: ;
+                    // }
+                }
+
                 &-details {
-                    text-align: center;
-                    p {
-                        color: white;
+                    &-date {
+                        color: rgba(107, 117, 133, 0.9);
+                    }
+                    &-name {
+                        color:white;
                     }
                 }
                 &:hover{
-                    text-shadow: 0 0 5px rgba(255,255,255,2);
+                    // text-shadow: 0 0 5px rgba(255,255,255,2);
                     transform: scale(1.1);
                     // border: 3px solid #919191;
                 }
@@ -90,7 +144,7 @@
     } 
 }
 .activeButton {
-    background-color: #1d1d1d !important;
-    color: wheat !important;
+    background-color: #1b2634 !important;
+    color: #20e28c !important;
 
 }

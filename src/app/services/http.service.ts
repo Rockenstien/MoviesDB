@@ -35,9 +35,15 @@ export class HttpService {
           }
     )
     .pipe(map(responseData =>{
-        let movieArray : AnimeSearch[]= [];
-        movieArray = responseData.results
-        return movieArray
+        let animeArray : AnimeSearch[]= [];
+        animeArray = responseData.results
+        for(var animes of animeArray){
+          if(animes.start_date != null){
+            let newDate = animes.start_date.split("T")[0];
+            animes.start_date = newDate.split("-")[0];
+          }
+        }
+        return animeArray
         // return responseData
     }))
   }
