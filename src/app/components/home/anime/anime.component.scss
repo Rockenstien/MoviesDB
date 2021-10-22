@@ -1,8 +1,10 @@
 .anime {
-
+    
     &-head {
+        width: 80%;
+        margin: 43px auto;
         &-title {
-            font-size: 37px;
+            font-size: 32px;
             width: 50%;
             p {
                 color: white;
@@ -19,18 +21,6 @@
                 color: rgba(79, 89, 99, 0.9);
                 margin-right: 50px;
                 margin-top: 17px;
-            }
-
-            &-line {
-                width: 70%;
-                // border-top: 1px solid white;
-                display: flex;
-                flex-direction: column;
-                &-1{
-                    width: 100%;
-                    height: 50%;
-                    border-bottom: 1px solid rgba(79,89,99, 0.3);
-                }
             }
     
             // width: 90%;
@@ -87,14 +77,17 @@
 
     &-row {
 
-        display: grid;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         width: 90%;
         margin: 10px auto;
-        grid-template-columns: repeat(6, 1fr);
+        // grid-template-columns: repeat(6, 1fr);
         row-gap: 20px;
 
         &-item{
-            margin-bottom: 57px;
+            // margin-bottom: 57px;
+            padding: 20px;
             &-card {
                 
                 width: 216px;
@@ -147,4 +140,30 @@
     background-color: #1b2634 !important;
     color: #20e28c !important;
 
+}
+@media only screen and (max-width: 600px) {
+    .anime {
+        &-head {
+            margin: 27px auto;
+            &-title {
+                font-size: 24px;
+                width: 80%;
+                margin: 0px auto;
+                text-align: center;
+            }
+            &-filter{
+                flex-direction: column;
+                margin: 0px auto;
+                width: 80%;
+                text-align: center;
+                span {
+                    margin-bottom: 14px;
+                    text-align: center;
+                }
+                select {
+                    padding: 10px 2rem;
+                }
+            }
+        }
+    }
 }

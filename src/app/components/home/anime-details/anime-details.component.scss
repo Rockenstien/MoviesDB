@@ -1,0 +1,89 @@
+.anime-details {
+    width: 80%;
+    height: 670px;
+    background-color: #1b2634;
+    margin: 50px auto;
+    padding: 50px;
+
+    &-navbar {
+        width: 100%;
+        height: 40px;
+        background-color: #20e28c;
+        ul {
+            
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            cursor: pointer;
+            li {
+                width:80px;
+                height: 100%;
+                color: rgb(37, 50, 64);
+                transform: 0.5s;
+                padding: 8px;
+                text-align: center;
+                &:hover {
+                    background: rgb(37, 50, 64);
+                    color: #20e28c;
+                }
+            }
+        }
+    }
+
+    &-window{
+        display: flex;
+        justify-content: center;
+        &-image {
+            width:30%;
+            height: 100%;
+            padding: 65px;
+            padding-top: 70px;
+            border-right: 1px solid rgba(79, 89, 99, 0.3);
+
+            img {
+                width: 210px;
+                height: 315px;
+            }
+        }
+    
+        &-head {
+            &-date {
+                color: rgba(107, 117, 133, 0.9);
+            }
+            &-name {
+                color:white;
+            }
+        }
+    
+    
+        &-specs {
+            width: 70%;
+            height: 100%;
+            padding: 100px;
+
+            h1 {
+                color: white;
+            }
+
+            .inner-slash {
+                color : #20e28c;
+            }
+            &-inner {
+                margin-top: 10px;
+                p{
+                    margin-bottom: 10px;
+                    color: white;
+                    line-height: 22px;
+                    span {
+                        color: rgba(107, 117, 133, 0.9);
+
+                        a {
+                            color: rgba(107, 117, 133, 0.9);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

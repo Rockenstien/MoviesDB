@@ -5,10 +5,6 @@
         </div>
         <div class="anime-head-filter">
             <span>{{ filterSelect | uppercase }} ANIMES</span>
-            <div class="anime-head-filter-line">
-                <div class="anime-head-filter-line-1"></div>
-                <div class="anime-head-filter-line-2"></div>
-            </div>
             <div class="anime-head-filter-select">
                 <select name="filter" id="filter" [(ngModel)]="filterSelect" (change)="filterChangeService()">
                     <option value="bypopularity">By Popularity</option>

@@ -2,12 +2,14 @@ export interface AnimeDetails {
     url: string;
     image_url: string;
     trailer ?: string;
+    title: string;
     title_english: string;
     title_japanese: string;
     type: string;
     episodes: number | {};
     airing: false;
     aired: {
+        string: string;
         prop:{
             from:{
                 day: number;
@@ -21,6 +23,10 @@ export interface AnimeDetails {
             };
         }
     };   
+    genres: {
+        name: string;
+    }[];
+    genresString: string;
     duration: string;
     rating: string;
     score: number;

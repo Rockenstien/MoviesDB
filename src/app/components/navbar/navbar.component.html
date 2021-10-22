@@ -12,11 +12,23 @@
     </div>
     <div class="navbar-links">
         <div class="navbar-links-username">
-            <p class="navbar-links-username-hello">Hello</p>
+            <p class="navbar-links-username-hello">Hello,</p>
             <p class="navbar-links-username-nametext">Paras</p>
         </div>
-        <div class="navbar-links-profilepic">
-            <!-- <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt=""> -->
-        </div>
+        <div class="navbar-links-profilepic"></div>
     </div>
+    <div class="navbar-mobile" [ngClass]="getActive()">
+        <div class="navbar-mobile-profilepic"></div>
+        <div class="navbar-mobile-username">
+            Hello, <span>Paras</span>
+        </div>
+        <form #f1="ngForm" (ngSubmit)="onSearch(f1)">
+            <button type="submit" class="navbar-links-search-submit"><fa-icon [icon]="faSearch"></fa-icon></button>
+            <input type="text" name="animeSearch" id="animeSearch" class="navbar-search-input" placeholder="Search something here..." ngModel>
+        </form>
+    </div>
+    <button class="navbar-hamburger" name="ham-button" [ngClass]="getActive()" (click)="toggleHam()">
+        <div class="navbar-hamburger-bar">
+        </div>
+    </button>
 </div>

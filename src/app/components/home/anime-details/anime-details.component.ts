@@ -12,21 +12,22 @@ import { HttpService } from 'src/app/services/http.service';
 })
 export class AnimeDetailsComponent implements OnInit {
   animeDetailsClass: AnimeSearch;
-  constructor(private animeDetails: AnimeDetailsService, private activatedRoute: ActivatedRoute, private httpservice: HttpService) { }
+  animeDetails: AnimeDetails;
+  constructor(private animeDetailsService: AnimeDetailsService, private activatedRoute: ActivatedRoute, private httpservice: HttpService) { }
 
   ngOnInit(): void {
 
     this.activatedRoute.params.subscribe((params: Params) => {
-      // if(params['mal-id'])
       this.httpservice.animeDetails(params['mal-id'])
       .subscribe((responseData: AnimeDetails) => {
-        console.log(responseData)
+        this.animeDetails = responseData;
+        this.animeDetails.genres
       });
     });
 
 
 
-    this.animeDetailsClass = this.animeDetails.getDetail();
+    // this.animeDetailsClass = this.animeDetails.getDetail();
     // console.log(this.animeDetails.getDetail())
   }
 

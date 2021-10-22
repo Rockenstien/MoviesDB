@@ -7,7 +7,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    position: sticky;
+    top: 0 ;
+    z-index: 99;
     &-logo{
         // float:left;
         height: 100%;
@@ -31,12 +33,12 @@
         margin-right: 50px;
         position: relative;
         padding-top: 25px;
-        left:-194px;
         height: 100%;
+        width: 70%;
         // margin
         &-input {
             padding: 15px;
-            width: 50rem;
+            width: 266px;
             outline: none;
             border: none;
             background-color: transparent;
@@ -72,9 +74,8 @@
 
     &-links {
         border-left: 1px solid rgba(79,89,99, 0.3);
-        padding-left: 50px;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         margin-right: 16px;
         // margin-top: ;
         padding-top: 22px;
@@ -87,6 +88,7 @@
                 text-align: right;
                 color:grey;
                 font-size: 15px;
+                width: 25%;
             }
 
             &-nametext {
@@ -103,5 +105,130 @@
             background-size: cover;
         }
         
+    }
+    &-hamburger {
+        position: relative;
+        display: block;
+        width: 52px;
+        height: 35px;
+        cursor: pointer;
+        appearance: none;
+        background: none;
+        outline: none;
+        border: none;
+        z-index: 99;
+        &-bar, &::after, &::before {
+            content: '';
+            display: block;
+            width: 68%;
+            height: 5px;
+            background-color: #fff;
+            margin: 6px 0px;
+            transition: 0.4s;
+        }
+    }
+    &-hamburger.is-active::before {
+        transform: rotate(-45deg) translate(-8px, 6px);
+    }   
+    &-hamburger.is-active::after {
+        transform: rotate(45deg) translate(-9px, -8px);
+    }
+    &-hamburger.is-active &-hamburger-bar{
+        opacity: 0;
+    }
+
+    &-mobile {
+        width: 100%;
+        height: 384px;
+        background: #253240;
+        position: fixed;
+        top: 110px;
+        right: 0px;
+        display: none;
+        z-index: 98;
+        transition: 0.4s;
+        border: 1px solid #20e28c;
+
+        &-profilepic {
+            width: 70px;
+            height: 70px;
+            border: 3px solid #20e28c;
+            border-radius: 50%;
+            margin: 0 auto;
+            position: relative;
+            top: 50px;
+            background-image: url("https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+            background-size: cover;
+        }
+
+        &-username {
+            width: 50%;
+            margin: 0 auto;
+            color: white;
+            text-align: center;
+            position: relative;
+            top: 90px;
+        }
+
+        form {
+            position: relative;
+            top: 113px;
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+
+            &-input {
+                padding: 15px;
+                width: 266px;
+                outline: none;
+                border: none;
+                background-color: transparent;
+                color: white;
+                font-size: 20px;
+    
+                &::placeholder {
+                    font-style: italic;
+                    // color: #323e4a;
+                    color:grey;
+                    font-size: 20px;
+                    font-weight: lighter;
+                }
+                
+            }
+
+            button {
+                background-color: transparent;
+                border: none;
+                outline: none;
+            }
+
+            fa-icon {
+                color:rgba(32,226,140, 0.3);
+                font-size: 20px;
+            }
+    
+            &:hover {
+                fa-icon {
+                    color:rgba(32,226,140, 0.8)
+                }
+            }
+        }
+    }
+    &-mobile.is-active {
+        display: block;
+    }
+
+}
+@media only screen and (max-width: 600px) {
+    .navbar-search {
+      display: none;
+    }
+    .navbar-links {
+       display: none;
+    }
+}
+@media only screen and (min-width: 600px) {
+    .navbar-mobile, .navbar-hamburger {
+        display: none;
     }
 }
