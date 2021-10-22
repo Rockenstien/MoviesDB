@@ -1,9 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { AnimeListService } from 'src/app/services/anime-list.service';
-import { AnimeSearch } from 'src/app/anime-search.model';
-import { HttpService } from 'src/app/services/http.service';
-import { FilteringService } from 'src/app/services/filtering.service';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,17 +7,11 @@ import { FilteringService } from 'src/app/services/filtering.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  
-  animeList: AnimeSearch[] = []
-  isLoading: boolean = false;
 
-  constructor(private router: Router, private httpService: HttpService, private animeListService: AnimeListService, private filtering: FilteringService) { }
+  constructor(private router: Router) { }
 
 
   ngOnInit(): void {
-    // console.log(1);
-    // this.isLoading = true;
-    // this.router.navigate(['anime']);
-
+    this.router.navigate(['anime']);
   }
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthComponent } from './components/auth/auth.component';
 import { AnimeDetailsComponent } from './components/home/anime-details/anime-details.component';
 import { AnimeComponent } from './components/home/anime/anime.component';
 import { HomeComponent } from './components/home/home.component';
@@ -22,7 +23,11 @@ const routes: Routes = [
         path: 'anime-details/:mal-id',
         component: AnimeDetailsComponent
       }
-    ]
+    ],
+  },
+  {
+    path: 'auth',
+    component: AuthComponent
   }
 ];
 

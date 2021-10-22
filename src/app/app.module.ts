@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { WordCutPipe } from './word-cut.pipe';
 import { AnimeDetailsComponent } from './components/home/anime-details/anime-details.component';
+import { AuthComponent } from './components/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { AnimeDetailsComponent } from './components/home/anime-details/anime-det
     HomeComponent,
     WordCutPipe,
     AnimeDetailsComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,

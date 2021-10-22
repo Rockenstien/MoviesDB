@@ -2,16 +2,19 @@
     <div class="anime-details-navbar">
         <ul>
             <li (click)="displayTab('about')" [ngClass]="{ is_active: disableAbout == false  }">About</li>
-            <li (click)="displayTab('trailer')" [ngClass]="{ is_active: disableAbout == true  }">Trailer</li>
+            <li (click)="displayTab('trailer')" [ngClass]="{ is_active: disableAbout == true  }" *ngIf="animeDetails?.trailer_url != null">Trailer</li>
         </ul>
     </div>
     <div class="anime-details-window">
         <div [ngClass]="{ disabled: disableAbout == true  }" class="anime-details-window-about">
             <div class="anime-details-window-about-image">
                 <img src="{{ animeDetails?.image_url }}" alt="">
-                <div class="anime-details-window-head">
-                    <p class="anime-details-window-about-head-date">{{ animeDetails?.aired?.prop?.from?.year }} • {{ animeDetails?.type }}</p>
-                    <p class="anime-details-window-about-head-name">{{ animeDetails?.title }} / {{ animeDetails?.title_japanese }}</p>
+                <div class="anime-details-window-about-image-rating">
+                    <p>{{ animeDetails.score.toFixed(2) }}</p>
+                </div>
+                <div class="anime-details-window-about-image-head">
+                    <p class="anime-details-window-about-image-head-date">{{ animeDetails?.aired?.prop?.from?.year }} • {{ animeDetails?.type }}</p>
+                    <p class="anime-details-window-about-image-head-name">{{ animeDetails?.title }} / {{ animeDetails?.title_japanese }}</p>
                 </div>
             </div>
             <div class="anime-details-window-about-specs">
@@ -24,7 +27,7 @@
                 </div>
             </div>
         </div>
-        <div [ngClass]="{ disabled: disableAbout == false  }" class="anime-details-window-trailer">
+        <div [ngClass]="{ disabled: disableAbout == false  }" class="anime-details-window-trailer" *ngIf="animeDetails?.trailer_url != null">
             <iframe
             [src]="animeDetails?.trailer_url">
             </iframe>

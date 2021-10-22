@@ -58,7 +58,8 @@ export class HttpService {
       for (let i=0; i < responseData.genres.length; i++){
         genresString +=', '+ responseData.genres[i].name; 
       }
-      responseData['trailer_url'] = this.sanitizer.bypassSecurityTrustResourceUrl(responseData?.trailer_url);
+      if(responseData.trailer_url != null)
+        responseData['trailer_url'] = this.sanitizer.bypassSecurityTrustResourceUrl(responseData?.trailer_url);
 
       return { ...responseData , genresString}
     }))
