@@ -1,7 +1,7 @@
 export interface AnimeDetails {
     url: string;
     image_url: string;
-    trailer ?: string;
+    trailer_url : any;
     title: string;
     title_english: string;
     title_japanese: string;

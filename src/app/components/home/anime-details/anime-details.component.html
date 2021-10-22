@@ -1,26 +1,33 @@
 <div class="anime-details">
     <div class="anime-details-navbar">
         <ul>
-            <li>About</li>
-            <li>Trailers</li>
+            <li (click)="displayTab('about')" [ngClass]="{ is_active: disableAbout == false  }">About</li>
+            <li (click)="displayTab('trailer')" [ngClass]="{ is_active: disableAbout == true  }">Trailer</li>
         </ul>
     </div>
     <div class="anime-details-window">
-        <div class="anime-details-window-image">
-            <img src="{{ animeDetails?.image_url }}" alt="">
-            <div class="anime-details-window-head">
-                <p class="anime-details-window-head-date">{{ animeDetails?.aired?.prop?.from?.year }} • {{ animeDetails?.type }}</p>
-                <p class="anime-details-window-head-name">{{ animeDetails?.title }} / {{ animeDetails?.title_japanese }}</p>
+        <div [ngClass]="{ disabled: disableAbout == true  }" class="anime-details-window-about">
+            <div class="anime-details-window-about-image">
+                <img src="{{ animeDetails?.image_url }}" alt="">
+                <div class="anime-details-window-head">
+                    <p class="anime-details-window-about-head-date">{{ animeDetails?.aired?.prop?.from?.year }} • {{ animeDetails?.type }}</p>
+                    <p class="anime-details-window-about-head-name">{{ animeDetails?.title }} / {{ animeDetails?.title_japanese }}</p>
+                </div>
+            </div>
+            <div class="anime-details-window-about-specs">
+                <h1>{{ animeDetails?.title }} <span class="inner-slash">/</span> {{ animeDetails?.title_japanese }}</h1>
+                <div class="anime-details-window-about-specs-inner">
+                    <p>Aired Date: <span class="inner-value"> {{ animeDetails?.aired?.string }}</span></p>
+                    <p>Genres: <span class="inner-value"> {{ animeDetails?.genresString }} </span></p>
+                    <p>URL: <span class="inner-value"> <a target="_blank" href="{{ animeDetails?.url }}">{{ animeDetails?.url }}</a> </span></p>
+                    <p>Synopsis: <span class="inner-value">{{ animeDetails?.synopsis }} </span></p>
+                </div>
             </div>
         </div>
-        <div class="anime-details-window-specs">
-            <h1>{{ animeDetails?.title }} <span class="inner-slash">/</span> {{ animeDetails?.title_japanese }}</h1>
-            <div class="anime-details-window-specs-inner">
-                <p>Aired Date: <span class="inner-value"> {{ animeDetails?.aired?.string }}</span></p>
-                <p>Genres: <span class="inner-value"> {{ animeDetails?.genresString }} </span></p>
-                <p>URL: <span class="inner-value"> <a target="_blank" href="{{ animeDetails?.url }}">{{ animeDetails?.url }}</a> </span></p>
-                <p>Synopsis: <span class="inner-value">{{ animeDetails?.synopsis }} </span></p>
-            </div>
+        <div [ngClass]="{ disabled: disableAbout == false  }" class="anime-details-window-trailer">
+            <iframe
+            [src]="animeDetails?.trailer_url">
+            </iframe>
         </div>
     </div>
 </div>

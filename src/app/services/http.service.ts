@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AnimeDetails } from '../anime-details.model';
 import { AnimeSearch } from '../anime-search.model';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class HttpService {
 
   movieList: AnimeSearch[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer) { }
 
   animeonLoad(filter: string, pageNumber: number){
     return this.http
@@ -53,10 +54,13 @@ export class HttpService {
     .get<AnimeDetails>(`https://api.jikan.moe/v3/anime/${mal_id}`)
     .pipe(map(responseData => {
       let genresString: string = "";
+
       for (let i=0; i < responseData.genres.length; i++){
         genresString +=', '+ responseData.genres[i].name; 
       }
-      return { ...responseData , genresString }
+      responseData['trailer_url'] = this.sanitizer.bypassSecurityTrustResourceUrl(responseData?.trailer_url);
+
+      return { ...responseData , genresString}
     }))
   }
 }

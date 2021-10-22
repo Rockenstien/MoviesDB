@@ -13,6 +13,10 @@ import { HttpService } from 'src/app/services/http.service';
 export class AnimeDetailsComponent implements OnInit {
   animeDetailsClass: AnimeSearch;
   animeDetails: AnimeDetails;
+
+  disableAbout: boolean = false;
+
+
   constructor(private animeDetailsService: AnimeDetailsService, private activatedRoute: ActivatedRoute, private httpservice: HttpService) { }
 
   ngOnInit(): void {
@@ -21,7 +25,7 @@ export class AnimeDetailsComponent implements OnInit {
       this.httpservice.animeDetails(params['mal-id'])
       .subscribe((responseData: AnimeDetails) => {
         this.animeDetails = responseData;
-        this.animeDetails.genres
+        console.log(this.animeDetails);
       });
     });
 
@@ -29,6 +33,15 @@ export class AnimeDetailsComponent implements OnInit {
 
     // this.animeDetailsClass = this.animeDetails.getDetail();
     // console.log(this.animeDetails.getDetail())
+  }
+
+  displayTab(selector: string){
+    if(selector == "about"){
+      this.disableAbout = false;
+    }
+    else {
+      this.disableAbout = true;
+    }
   }
 
 }
