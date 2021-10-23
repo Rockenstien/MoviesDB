@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './components/auth/auth.component';
+import { AuthGuard } from './components/auth/auth.guard';
 import { AnimeDetailsComponent } from './components/home/anime-details/anime-details.component';
 import { AnimeComponent } from './components/home/anime/anime.component';
 import { HomeComponent } from './components/home/home.component';
@@ -16,12 +17,13 @@ const routes: Routes = [
       },
       {
         path: 'anime/:anime-search',
-        component: AnimeComponent,
+        component: AnimeComponent
         
       },
       {
         path: 'anime-details/:mal-id',
-        component: AnimeDetailsComponent
+        component: AnimeDetailsComponent,
+        canActivate: [AuthGuard]
       }
     ],
   },

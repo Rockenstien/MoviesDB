@@ -71,15 +71,16 @@
             }
         }
     }
-
+    .loggedin{
+        display: flex;
+        justify-content: space-between;
+        margin-right: 16px; 
+        padding-left:10px;
+    }
     &-links {
         border-left: 1px solid rgba(79,89,99, 0.3);
-        display: flex;
-        justify-content: space-around;
-        margin-right: 16px;
-        // margin-top: ;
         padding-top: 22px;
-        width: 180px;
+        width: 290px;
         height: 100%;
         &-username {
             // margin-right: 10px;
@@ -92,7 +93,8 @@
             }
 
             &-nametext {
-                color:white
+                color:white;
+                word-wrap: break-word;
             }
         }
 
@@ -103,6 +105,45 @@
             border-radius: 50%;
             background-image: url("https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
             background-size: cover;
+        }
+
+        &-logout {
+            margin-top:13px;
+            button {
+                background-color: #20e28c;
+                color: #253240 !important;
+                outline: none;
+                border: none;
+                padding:10px;
+                cursor: pointer;
+                &:hover {
+                    background-color: #253240;
+                    color: #20e28c !important;
+                }
+            }
+            
+        }
+
+        &-login {
+            button {
+                width:150px;
+                padding:8px;
+                margin: 0px auto;
+                display: block;
+                margin-top: 10px;
+                outline: none;
+                border: none;
+                color: #253240 !important;
+                background-color: #20e28c;
+                border-radius: 3px;
+                cursor: pointer;
+                font-size: 13px;
+                font-weight: 500;
+                &:hover {
+                    color: #20e28c !important;
+                    background-color: #253240;
+                }
+            }
         }
         
     }
@@ -218,6 +259,9 @@
         display: block;
     }
 
+}
+.disabled {
+    display: none !important;
 }
 @media only screen and (max-width: 600px) {
     .navbar-search {

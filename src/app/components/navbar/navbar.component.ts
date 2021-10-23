@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { UserModel } from 'src/app/models/user.model';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,10 +13,25 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 export class NavbarComponent implements OnInit {
   faSearch = faSearch;
   hamburgerActive: boolean = false;
+  isLoggedin: boolean = false;
+  user: UserModel;
 
-  constructor(private routes: Router) { }
+  constructor(private routes: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.authService.isLoggedIn().subscribe( responseData => {
+      this.isLoggedin = responseData;
+      if(responseData){
+        let authData = localStorage.getItem('auth') ?? "";
+        this.user = JSON.parse(authData);
+      }
+    })
+    if(!!localStorage.getItem('auth')){
+      this.isLoggedin = true;
+      let authData = localStorage.getItem('auth') ?? "";
+      this.user = JSON.parse(authData);
+    }
+    
   }
 
   onSearch(formData: NgForm){
@@ -34,6 +51,15 @@ export class NavbarComponent implements OnInit {
 
   toggleHam(){
     this.hamburgerActive = !this.hamburgerActive;
+  }
+
+  logout(){
+    this.authService.logOut();
+    this.navtoAuth();
+  }
+
+  navtoAuth(){
+    this.routes.navigate(['auth']);
   }
 
 }

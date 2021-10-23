@@ -70,6 +70,16 @@
     }
     
 }
+.error {
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    background-color:rgba(151, 75, 75, 0.8);
+    border-radius: 10px;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+}
 
 .disabled {
     display: none;
@@ -77,4 +87,20 @@
 .is_active {
     background: rgb(37, 50, 64);
     color: #20e28c !important;
+}
+.ng-invalid.ng-touched {
+    border-color: brown !important;
+}
+@media screen and (max-width: 1283px) and (min-width: 500px) {
+    .auth-container {
+        width: 90%;
+    }   
+}
+@media screen and (max-width: 499px){
+    .auth-container {
+        width: 90%;
+        form {
+            width: 90%
+        }
+    } 
 }
