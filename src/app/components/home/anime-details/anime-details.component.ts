@@ -25,7 +25,7 @@ export class AnimeDetailsComponent implements OnInit {
       this.httpservice.animeDetails(params['mal-id'])
       .subscribe((responseData: AnimeDetails) => {
         this.animeDetails = responseData;
-        console.log(this.animeDetails);
+        // console.log(this.animeDetails);
       });
     });
 

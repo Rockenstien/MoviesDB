@@ -54,7 +54,7 @@ export class AnimeComponent implements OnInit {
     .subscribe((responseData) => {
       // this.setAnimeList.setAnimeList(responseData)
       this.animeList = responseData;
-      console.log(responseData);
+      // console.log(responseData);
       // this.animeList = responseData;
       // console.log(responseData)
       // this.isLoading = false;

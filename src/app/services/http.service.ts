@@ -22,7 +22,7 @@ export class HttpService {
     )
     .pipe(map(responseData => {
       let movieArray : AnimeSearch[]= [];
-      console.log(responseData)
+      // console.log(responseData)
       movieArray = responseData.top
       return movieArray
     }))

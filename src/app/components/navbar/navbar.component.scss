@@ -190,6 +190,23 @@
         transition: 0.4s;
         border: 1px solid #20e28c;
 
+
+        &-loggedout {
+            button {
+                position: relative;
+                top:57px;
+                background-color: #20e28c;
+                color: #253240 !important;
+
+                &:focus {
+                    background-color: #253240;
+                    color: #20e28c !important;
+                }
+            }
+        }
+
+        
+
         &-profilepic {
             width: 70px;
             height: 70px;
@@ -211,10 +228,32 @@
             top: 90px;
         }
 
+        &-logout {
+            margin-top:13px;
+            position: relative;
+            top: 103px;
+            height:38px;
+            width: 105px;
+            margin: 0 auto;
+            button {
+                background-color: #20e28c;
+                color: #253240 !important;
+                outline: none;
+                border: none;
+                padding:10px;
+                width:100%;
+                cursor: pointer;
+                &:hover {
+                    background-color: #253240;
+                    color: #20e28c !important;
+                }
+            }
+        }
+
         form {
             position: relative;
             top: 113px;
-            width: 80%;
+            width: 64%;
             margin: 0 auto;
             display: flex;
 

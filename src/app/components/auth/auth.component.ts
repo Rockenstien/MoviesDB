@@ -56,7 +56,7 @@ export class AuthComponent implements OnInit {
       )
     }
     else{
-      this.loginError = "Please enter valid credetials";
+      this.loginError = "Please enter valid credentials";
     }
   }
   onSubmitSignup(){

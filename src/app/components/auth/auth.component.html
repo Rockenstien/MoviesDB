@@ -16,7 +16,7 @@
                     <label for="lpass">Password</label>
                     <input class="form-control" type="password" formControlName="lpass" id="lpass" minlength="6">
                 </div>
-                <button type="submit" [disabled]="!loginForm.valid">Login</button>   
+                <button type="submit">Login</button>   
                 <div class="error" *ngIf="loginError">
                     <p class="error-text">{{ loginError }}</p>
                 </div>        
@@ -36,8 +36,8 @@
                     <label for="spass">Password</label>
                     <input class="form-control" type="password" formControlName="spass" id="spass" minlength="6">
                 </div>
-                <button type="submit" [disabled]="!signupForm.valid">Signup</button>           
-                <div class="error">
+                <button type="submit">Signup</button>           
+                <div class="error" *ngIf="signupError">
                     <p class="error-text">{{ signupError }}</p>
                 </div>
             </form>

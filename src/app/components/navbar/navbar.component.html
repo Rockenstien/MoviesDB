@@ -27,14 +27,24 @@
             </div>
         </div>
     </div>
-    <div class="navbar-mobile" [ngClass]="getActive()">
-        <div class="navbar-mobile-profilepic"></div>
-        <div class="navbar-mobile-username">
-            Hello, <span>Paras</span>
+    <div class="navbar-mobile" [ngClass]="getActive()" #dropdown>
+        <div class="navbar-mobile-loggedin" [ngClass]="{ disabled: !isLoggedin }">
+            <div class="navbar-mobile-profilepic"></div>
+            <div class="navbar-mobile-username">
+                Hello, <span>{{ user?.displayName }}</span>
+            </div>
+        </div>
+        <div class="navbar-mobile-loggedout" [ngClass]="{ disabled: isLoggedin }">
+            <div class="navbar-links-login" >
+                <button (click)="navtoAuth()">Login <span>/</span> Submit</button>
+            </div>
+        </div>
+        <div class="navbar-mobile-logout" [ngClass]="{ disabled: !isLoggedin }">
+            <button (click)="logout()">Logout</button>
         </div>
         <form #f1="ngForm" (ngSubmit)="onSearch(f1)">
             <button type="submit" class="navbar-links-search-submit"><fa-icon [icon]="faSearch"></fa-icon></button>
-            <input type="text" name="animeSearchM" id="animeSearchM" class="navbar-search-input" placeholder="Search something here..." ngModel>
+            <input type="text" name="animeSearch" id="animeSearch" class="navbar-search-input" placeholder="Search something here..." ngModel>
         </form>
     </div>
     <button class="navbar-hamburger" name="ham-button" [ngClass]="getActive()" (click)="toggleHam()">
