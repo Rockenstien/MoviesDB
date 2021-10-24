@@ -38,9 +38,16 @@ export class NavbarComponent implements OnInit {
   onSearch(formData: NgForm){
     if(formData.value.animeSearch != ""){
       this.routes.navigate(['anime', formData.value.animeSearch]);
+    }
+  }
+
+  onSearchM(formData: NgForm){
+    if(formData.value.animeSearch != ""){
+      this.routes.navigate(['anime', formData.value.animeSearch]);
       this.dropdownRemove();
     }
   }
+
 
   getActive(){
     if(this.hamburgerActive){

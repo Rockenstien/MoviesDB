@@ -13,6 +13,7 @@ import { WordCutPipe } from './pipes/word-cut.pipe';
 import { AnimeDetailsComponent } from './components/home/anime-details/anime-details.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     WordCutPipe,
     AnimeDetailsComponent,
     AuthComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,

@@ -19,6 +19,7 @@
             </div>
         </div>
     </div>
+    <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
     <div class="anime-row">
         <div class="anime-row-item" *ngFor="let anime of animeList;">
             <div class="anime-row-item-card" (click)="setAnimeDetailToService(anime, anime.mal_id)">

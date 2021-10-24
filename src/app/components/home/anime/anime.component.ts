@@ -16,6 +16,7 @@ export class AnimeComponent implements OnInit {
   filterSelect: string = "favorite";
   currentPage: number = 1;
   paginationButtonDisabled:boolean = false;
+  isLoading: boolean = true;
 
   constructor(private animeDetailsService: AnimeDetailsService, private router: Router, private animeListService: AnimeListService, private filteringService: FilteringService, private httpService: HttpService, private activatedRoute: ActivatedRoute) { }
 
@@ -26,7 +27,7 @@ export class AnimeComponent implements OnInit {
         .animeSearch(params['anime-search'])
         .subscribe((responseData)=>{
           this.animeList = responseData;
-          // this.animeListService.setAnimeList(responseData);
+          this.isLoading = false;
         })
       }
       else {
@@ -57,7 +58,7 @@ export class AnimeComponent implements OnInit {
       // console.log(responseData);
       // this.animeList = responseData;
       // console.log(responseData)
-      // this.isLoading = false;
+      this.isLoading = false;
     })
   }
   

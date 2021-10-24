@@ -42,7 +42,7 @@
         <div class="navbar-mobile-logout" [ngClass]="{ disabled: !isLoggedin }">
             <button (click)="logout()">Logout</button>
         </div>
-        <form #f1="ngForm" (ngSubmit)="onSearch(f1)">
+        <form #f1="ngForm" (ngSubmit)="onSearchM(f1)">
             <button type="submit" class="navbar-links-search-submit"><fa-icon [icon]="faSearch"></fa-icon></button>
             <input type="text" name="animeSearch" id="animeSearch" class="navbar-search-input" placeholder="Search something here..." ngModel>
         </form>
