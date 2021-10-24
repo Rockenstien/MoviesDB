@@ -12,6 +12,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { WordCutPipe } from './pipes/word-cut.pipe';
 import { AnimeDetailsComponent } from './components/home/anime-details/anime-details.component';
 import { AuthComponent } from './components/auth/auth.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AuthComponent } from './components/auth/auth.component';
     WordCutPipe,
     AnimeDetailsComponent,
     AuthComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import { AuthGuard } from './components/auth/auth.guard';
 import { AnimeDetailsComponent } from './components/home/anime-details/anime-details.component';
 import { AnimeComponent } from './components/home/anime/anime.component';
 import { HomeComponent } from './components/home/home.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'auth',
     component: AuthComponent
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent
   }
 ];
 
