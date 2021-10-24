@@ -12,7 +12,6 @@ export class FilteringService {
   constructor(private httpService: HttpService, private animeListService: AnimeListService) { }
 
   filterLoad(filterSelect: string, pageNumber: number): Observable<AnimeSearch[]>{
-    // console.log(filter.value);
     return this.httpService
     .animeonLoad(filterSelect, pageNumber)
   }

@@ -22,7 +22,6 @@ export class HttpService {
     )
     .pipe(map(responseData => {
       let movieArray : AnimeSearch[]= [];
-      // console.log(responseData)
       movieArray = responseData.top
       return movieArray
     }))
@@ -45,7 +44,6 @@ export class HttpService {
           }
         }
         return animeArray
-        // return responseData
     }))
   }
 
@@ -56,11 +54,11 @@ export class HttpService {
       let genresString: string = "";
 
       for (let i=0; i < responseData.genres.length; i++){
-        genresString +=', '+ responseData.genres[i].name; 
+        genresString +=', '+ responseData.genres[i].name; // Genres was in array of string
       }
       if(responseData.trailer_url != null)
         responseData['trailer_url'] = this.sanitizer.bypassSecurityTrustResourceUrl(responseData?.trailer_url);
-
+        // Above statement is Needed For unsafe url error by angular
       return { ...responseData , genresString}
     }))
   }

@@ -37,10 +37,6 @@ export class AnimeComponent implements OnInit {
     });
   }
 
-  // setAnimeList(){
-  //   this.animeList = this.animeListService.getAnimeList();
-  // }
-
   setAnimeDetailToService(anime: AnimeSearch, mal_id: number){
     // this.animeDetailsService.setDetail(anime);
     this.router.navigate(['anime-details', mal_id])
@@ -53,11 +49,7 @@ export class AnimeComponent implements OnInit {
   animeLoad(){
     this.filteringService.filterLoad(this.filterSelect, this.currentPage)
     .subscribe((responseData) => {
-      // this.setAnimeList.setAnimeList(responseData)
       this.animeList = responseData;
-      // console.log(responseData);
-      // this.animeList = responseData;
-      // console.log(responseData)
       this.isLoading = false;
     })
   }
