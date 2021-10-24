@@ -23,7 +23,7 @@
         </div>
         <div class="loggedout" [ngClass]="{ disabled: isLoggedin }">
             <div class="navbar-links-login" >
-                <button (click)="navtoAuth()">Login <span>/</span> Submit</button>
+                <button (click)="navtoAuth()">Login <span>/</span> SignUp</button>
             </div>
         </div>
     </div>
@@ -36,7 +36,7 @@
         </div>
         <div class="navbar-mobile-loggedout" [ngClass]="{ disabled: isLoggedin }">
             <div class="navbar-links-login" >
-                <button (click)="navtoAuth()">Login <span>/</span> Submit</button>
+                <button (click)="navtoAuthM()">Login <span>/</span> SignUp</button>
             </div>
         </div>
         <div class="navbar-mobile-logout" [ngClass]="{ disabled: !isLoggedin }">
