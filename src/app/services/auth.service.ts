@@ -61,7 +61,7 @@ export class AuthService {
   handleError(errorRes: HttpErrorResponse) {
     let errorMessage = 'An unknown error occurred!';
     if (!errorRes.error || !errorRes.error.error) {
-      return throwError(errorMessage);
+      return throwError(errorMessage);  // If error is not present in the system
     }
     switch (errorRes.error.error.message) {
       case 'EMAIL_EXISTS':
