@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AnimeSearch } from '../anime-search.model';
+import { AnimeSearch } from '../models/anime-search.model';
 
 @Injectable({
   providedIn: 'root'

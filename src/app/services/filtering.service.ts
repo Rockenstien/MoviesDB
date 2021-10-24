@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AnimeSearch } from '../anime-search.model';
+import { AnimeSearch } from '../models/anime-search.model';
 import { AnimeListService } from './anime-list.service';
 import { HttpService } from './http.service';
 
