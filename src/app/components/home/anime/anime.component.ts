@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AnimeListService } from 'src/app/services/anime-list.service';
-import { AnimeSearch } from 'src/app/anime-search.model';
+import { AnimeSearch } from 'src/app/models/anime-search.model';
 import { AnimeDetailsService } from 'src/app/services/anime-details.service';
 import { FilteringService } from 'src/app/services/filtering.service';
 import { HttpService } from 'src/app/services/http.service';

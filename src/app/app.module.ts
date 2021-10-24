@@ -9,7 +9,7 @@ import { AnimeComponent } from './components/home/anime/anime.component';
 import { HomeComponent } from './components/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { WordCutPipe } from './word-cut.pipe';
+import { WordCutPipe } from './pipes/word-cut.pipe';
 import { AnimeDetailsComponent } from './components/home/anime-details/anime-details.component';
 import { AuthComponent } from './components/auth/auth.component';
 

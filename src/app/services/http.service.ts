@@ -2,8 +2,8 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AnimeDetails } from '../anime-details.model';
-import { AnimeSearch } from '../anime-search.model';
+import { AnimeDetails } from '../models/anime-details.model';
+import { AnimeSearch } from '../models/anime-search.model';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Injectable({
