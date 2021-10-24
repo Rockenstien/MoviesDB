@@ -61,6 +61,9 @@ export class NavbarComponent implements OnInit {
   }
 
   navtoAuth(){
+    this.routes.navigate(['auth']);
+  }
+  navtoAuthM(){
     this.dropdownRemove();
     this.routes.navigate(['auth']);
   }
