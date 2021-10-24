@@ -1,0 +1,20 @@
+.pg-container {
+    width:70%;
+    height:400px;
+    background-color: #1b2634;
+    color: white;
+    margin: 100px auto;
+    span {
+        color: #20e28c;
+    }
+    &-fourofour {
+        font-size: 150px;
+        width:100%;
+        text-align: center;
+    }
+    &-notfound {
+        font-size: 70px;
+        width:100%;
+        text-align: center;
+    }
+}
