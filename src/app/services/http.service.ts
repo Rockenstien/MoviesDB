@@ -1,7 +1,7 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, of, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { AnimeDetails } from '../models/anime-details.model';
 import { AnimeSearch } from '../models/anime-search.model';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -20,7 +20,7 @@ export class HttpService {
     .get<{ [key: string]: AnimeSearch[] }>(
       `https://api.jikan.moe/v3/top/anime/${pageNumber}/${filter}`
     )
-    .pipe(map(responseData => {
+    .pipe(catchError(this.handleError),map(responseData => {
       let movieArray : AnimeSearch[]= [];
       movieArray = responseData.top
       return movieArray
@@ -34,7 +34,8 @@ export class HttpService {
         params: new HttpParams().set('q', searchQuery).set('page', 1) 
       }
     )
-    .pipe(map(responseData =>{
+    .pipe(catchError(this.handleError),
+      map(responseData =>{
         let animeArray : AnimeSearch[]= [];
         animeArray = responseData.results
         for(var animes of animeArray){
@@ -50,7 +51,7 @@ export class HttpService {
   animeDetails(mal_id: number): Observable<AnimeDetails>{
     return this.http
     .get<AnimeDetails>(`https://api.jikan.moe/v3/anime/${mal_id}`)
-    .pipe(map(responseData => {
+    .pipe(catchError(this.handleError),map(responseData => {
       let genresString: string = "";
 
       for (let i=0; i < responseData.genres.length; i++){
@@ -61,5 +62,11 @@ export class HttpService {
         // Above statement is Needed For unsafe url error by angular
       return { ...responseData , genresString}
     }))
+  }
+
+  handleError(errores: HttpErrorResponse){
+    let errorMessage = errores.error.error.message;
+    alert(errores.error.error.error.message);
+    return throwError(errorMessage);
   }
 }
