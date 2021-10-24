@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { throwError,Observable, Subject } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { SignUpResponse } from '../models/signup.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,7 @@ export class AuthService {
 
   signUp(email: string, password: string, displayName: string){
     return this.http
-    .post<SignUpResponse>(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=
-    AIzaSyCM1K7etp_CcA34jEpOIi-LDJmxA7vfThY`,
+    .post<SignUpResponse>(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=`+environment.firebaseKey,
       {
         email: email,
         password: password,
@@ -37,7 +37,7 @@ export class AuthService {
 
   login(email: string, password: string){
     return this.http
-    .post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCM1K7etp_CcA34jEpOIi-LDJmxA7vfThY`,
+    .post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=`+environment.firebaseKey,
       {
         email: email,
         password: password,
