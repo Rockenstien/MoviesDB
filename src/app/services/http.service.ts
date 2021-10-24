@@ -14,7 +14,7 @@ export class HttpService {
   movieList: AnimeSearch[] = [];
 
   constructor(private http: HttpClient, private sanitizer: DomSanitizer) { }
-
+  // Used both types of parameter embedding
   animeonLoad(filter: string, pageNumber: number){
     return this.http
     .get<{ [key: string]: AnimeSearch[] }>(
