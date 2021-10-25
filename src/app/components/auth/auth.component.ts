@@ -20,7 +20,7 @@ export class AuthComponent implements OnInit {
 
   ngOnInit(): void {
     if(!!localStorage.getItem('auth')){
-      this.route.navigate(['/anime']);
+      this.route.navigate(['/']);
     }
     this.loginForm = new FormGroup({
       "lemail": new FormControl(null, [Validators.required, Validators.email]),
@@ -47,7 +47,7 @@ export class AuthComponent implements OnInit {
       this.authService.login(this.loginForm.value.lemail, this.loginForm.value.lpass)
       .subscribe(
         (responseData) => {
-          this.route.navigate(['/anime']);
+          this.route.navigate(['/']);
         },
         (errorData) => {
           this.loginError = errorData;
@@ -63,7 +63,7 @@ export class AuthComponent implements OnInit {
       this.authService.signUp(this.signupForm.value.semail, this.signupForm.value.spass, this.signupForm.value.fname)
       .subscribe(
         (responseData) => {
-          this.route.navigate(['/anime']);
+          this.route.navigate(['/']);
         },
         (errorData) => {
           this.signupError = errorData;
