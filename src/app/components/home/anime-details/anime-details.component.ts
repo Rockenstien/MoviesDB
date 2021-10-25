@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { AnimeSearch } from 'src/app/models/anime-search.model';
 import { AnimeDetails } from 'src/app/models/anime-details.model';
-import { AnimeDetailsService } from 'src/app/services/anime-details.service';
 import { HttpService } from 'src/app/services/http.service';
 
 @Component({
@@ -17,7 +16,7 @@ export class AnimeDetailsComponent implements OnInit {
   disableAbout: boolean = false;
 
 
-  constructor(private animeDetailsService: AnimeDetailsService, private activatedRoute: ActivatedRoute, private httpservice: HttpService) { }
+  constructor( private activatedRoute: ActivatedRoute, private httpservice: HttpService) { }
 
   ngOnInit(): void {
 

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AnimeSearch } from '../models/anime-search.model';
-import { AnimeListService } from './anime-list.service';
 import { HttpService } from './http.service';
 
 @Injectable({
@@ -9,7 +8,7 @@ import { HttpService } from './http.service';
 })
 export class FilteringService {
 
-  constructor(private httpService: HttpService, private animeListService: AnimeListService) { }
+  constructor(private httpService: HttpService) { }
 
   filterLoad(filterSelect: string, pageNumber: number): Observable<AnimeSearch[]>{
     return this.httpService
