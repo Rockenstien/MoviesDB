@@ -25,7 +25,7 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
     AnimeDetailsComponent,
     AuthComponent,
     PageNotFoundComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
   ],
   imports: [
     BrowserModule,

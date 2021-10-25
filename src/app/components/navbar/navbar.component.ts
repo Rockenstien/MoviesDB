@@ -37,13 +37,13 @@ export class NavbarComponent implements OnInit {
 
   onSearch(formData: NgForm){
     if(formData.value.animeSearch != ""){
-      this.routes.navigate(['anime', formData.value.animeSearch]);
+      this.routes.navigate(['/anime', formData.value.animeSearch]);
     }
   }
 
   onSearchM(formData: NgForm){
     if(formData.value.animeSearch != ""){
-      this.routes.navigate(['anime', formData.value.animeSearch]);
+      this.routes.navigate(['/anime', formData.value.animeSearch]);
       this.dropdownRemove();
     }
   }
@@ -68,11 +68,11 @@ export class NavbarComponent implements OnInit {
   }
 
   navtoAuth(){
-    this.routes.navigate(['auth']);
+    this.routes.navigate(['/auth']);
   }
   navtoAuthM(){
     this.dropdownRemove();
-    this.routes.navigate(['auth']);
+    this.routes.navigate(['/auth']);
   }
 
   dropdownRemove() {  //removing dropdown of hamburger if any event is done

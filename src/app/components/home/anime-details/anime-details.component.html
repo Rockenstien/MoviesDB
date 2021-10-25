@@ -10,7 +10,7 @@
             <div class="anime-details-window-about-image">
                 <div class="innerImage">
                     <img src="{{ animeDetails?.image_url }}" alt="">
-                    <div class="anime-details-window-about-image-rating">
+                    <div class="anime-details-window-about-image-rating" *ngIf="animeDetails?.score">
                         <p>{{ animeDetails.score.toFixed(2) }}</p>
                     </div>
                 </div>

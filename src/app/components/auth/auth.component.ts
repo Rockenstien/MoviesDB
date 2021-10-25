@@ -20,7 +20,7 @@ export class AuthComponent implements OnInit {
 
   ngOnInit(): void {
     if(!!localStorage.getItem('auth')){
-      this.route.navigate(['anime']);
+      this.route.navigate(['/anime']);
     }
     this.loginForm = new FormGroup({
       "lemail": new FormControl(null, [Validators.required, Validators.email]),
