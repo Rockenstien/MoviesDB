@@ -8,9 +8,11 @@
     <div class="anime-details-window">
         <div [ngClass]="{ disabled: disableAbout == true  }" class="anime-details-window-about">
             <div class="anime-details-window-about-image">
-                <img src="{{ animeDetails?.image_url }}" alt="">
-                <div class="anime-details-window-about-image-rating">
-                    <p>{{ animeDetails.score.toFixed(2) }}</p>
+                <div class="innerImage">
+                    <img src="{{ animeDetails?.image_url }}" alt="">
+                    <div class="anime-details-window-about-image-rating">
+                        <p>{{ animeDetails.score.toFixed(2) }}</p>
+                    </div>
                 </div>
                 <div class="anime-details-window-about-image-head">
                     <p class="anime-details-window-about-image-head-date">{{ animeDetails?.aired?.prop?.from?.year }} • {{ animeDetails?.type }}</p>

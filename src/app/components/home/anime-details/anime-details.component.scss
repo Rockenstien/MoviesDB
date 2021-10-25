@@ -45,10 +45,19 @@
                 border-right: 1px solid rgba(79, 89, 99, 0.3);
                 position: relative;
 
+                .innerImage {
+                    width: 209px;
+                    position: relative;
+                    display: block;
+                    margin: 0 auto;
+                }
 
                 img {
-                    width: 210px;
+                    max-width: 210px;
+                    width:100%;
                     height: 315px;
+                    display: block;
+                    margin: 0 auto;
                 }
 
                 &-head {
@@ -64,9 +73,8 @@
                     width: 42px;
                     height: 42px;
                     position: absolute;
-                    top: 73px;
-                    bottom: 2px;
-                    right: 151px;
+                    top: 5px;
+                    right: 5px;
                     background-color: rgba(32,226,140, 0.8);
                     border-radius: 50%;
                     padding-left: 6px;
@@ -139,6 +147,7 @@
             display: flex;
             // justify-content: center;
             flex-direction: column;
+            
             &-image {
                 width:100%;
                 height: 100%;
@@ -146,19 +155,6 @@
                 padding-top: 70px;
                 border: none;
 
-                img {
-                    max-width: 210px;
-                    width:90%;
-                    height: 315px;
-                    display: block;
-                    margin: 0 auto;
-                }
-
-                &-rating {
-                    top: 73px;
-                    bottom: 2px;
-                    right: 73px;
-                }
 
                 &-head {
                     margin-top: 40px;
